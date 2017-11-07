@@ -60,6 +60,15 @@ function zendvn_theme_widgets_init(){
 		'after_widget'  => '</div>'				
 	));
 	register_sidebar(array(
+		'name'          => __( 'FeaturedArticleWidget', $themeName ),
+		'id'            => 'featured-article-widget',		
+		'class'         => '',
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'before_title'  => '<h6>',
+		'after_title'   => '</h6>',
+		'after_widget'  => '</div>'				
+	));
+	register_sidebar(array(
 		'name'          => __( 'GoiYMotWidget', $themeName ),
 		'id'            => 'goi-y-mot-widget',		
 		'class'         => '',
@@ -158,15 +167,7 @@ function zendvn_theme_widgets_init(){
 		'after_title'   => '</h3>',
 		'after_widget'  => '</div>'				
 	));
-	register_sidebar(array(
-		'name'          => __( 'FeaturedArticleWidget', $themeName ),
-		'id'            => 'featured-article-widget',		
-		'class'         => '',
-		'before_widget' => '<div id="%1$s" class="%2$s">',
-		'before_title'  => '<h6>',
-		'after_title'   => '</h6>',
-		'after_widget'  => '</div>'				
-	));
+	
 	register_sidebar(array(
 		'name'          => __( 'ContactOrderWidget', $themeName ),
 		'id'            => 'contact-order-widget',		

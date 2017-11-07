@@ -109,23 +109,23 @@ if(count($arrCart) > 0){
     <div class="bg-header">
         <div class="container">        
             <div class="menu">
-                <div class="col-lg-3 no-padding">                
+                <div class="col-lg-2 no-padding">                
                     <center><a href="<?php echo home_url(); ?>">                
                         <img src="<?php echo $customizerGlobal->general_section('site-logo');?>" />
                     </a></center>
                 </div>
-                <div class="col-lg-6 no-padding">                                      
+                <div class="col-lg-6">                                      
                     <div class="box-search">
                         <form action="<?php echo $search_link; ?>" method="get">
-                            <input type="text" name="q" autocomplete="off" placeholder="Điện thoại, Ipad, Samsung, Iphone..." value="">
+                            <input type="text" name="q" autocomplete="off" placeholder="Rau sạch rau thơm , rau càng cua..." value="">
                             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </form>
                         <div class="clr"></div>
                     </div>
                     <div class="clr"></div>
-                    <div class="goi-y-tu-khoa"><span><font color="#00a651">Gợi ý từ khóa:</font></span> Thời trang nam, Thời trang nữ, Balo, túi xách, Mè và bé...</div>
+                    <div class="goi-y-tu-khoa"><span><font color="#ff9900">Gợi ý từ khóa:</font></span> Rau sạch rau thơm , rau càng cua</div>
                 </div>
-                <div class="col-lg-3 no-padding">
+                <div class="col-lg-4">
                     <div class="col-lg-6">
                         <div class="box">
                             <div class="icon">

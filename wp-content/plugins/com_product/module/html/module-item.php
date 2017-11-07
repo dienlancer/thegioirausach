@@ -19,7 +19,46 @@ if(!empty($instance['item_id'])){
 	$arrItemID=explode(",",$instance["item_id"]);
 	if(count($arrItemID) > 0){
 		if($instance["status"]=='active'){		
-			switch ($instance["position"]) {				
+			switch ($instance["position"]) {
+				case "featured-article-widget":
+				$args = array(
+					'post__in' => $arrItemID,
+					'post_type' => 'post'
+				);			 
+				$query = new WP_Query($args);		
+				if($query->have_posts()){
+					$k=1;
+					$post_count=$query->post_count;
+					while ($query->have_posts()) {
+						$query->the_post();		
+						$post_id=$query->post->ID;							
+						$permalink=get_the_permalink($post_id);
+						$title=get_the_title($post_id);
+						$excerpt=get_post_meta($post_id,$post_meta_key."intro",true);
+						$featureImg=wp_get_attachment_url(get_post_thumbnail_id($post_id));		   
+						$featureImg=$vHtml->getFileName($featureImg);
+						$featureImg=site_url('/wp-content/uploads/'.$featureImg ,null );  
+						?>
+						<div class="col-lg-6">
+							<div class="dv-tintuc margin-top-15">
+								<div class="col-xs-4"><img src="<?php echo $featureImg; ?>" /></div>
+								<div class="col-xs-8">
+									<div class="featured-title"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></div>
+									<div class="excerpt-content"><?php echo $excerpt; ?></div>
+									<a href="<?php echo $permalink; ?>" class="readmore">Xem thêm...</a>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>																	
+						<?php	
+						if($k%2==0 || $k==$post_count){
+							echo '<div class="clr"></div>';
+						}	
+						$k++;						
+					}
+					wp_reset_postdata();  
+				}
+				break;				
 				case "hot-news-widget":	
 				?>
 				<script type="text/javascript" language="javascript">
@@ -40,7 +79,7 @@ if(!empty($instance['item_id'])){
 									nav:false
 								},
 								1000:{
-									items:3,
+									items:1,
 									nav:true,
 									loop:false
 								}
@@ -69,16 +108,9 @@ if(!empty($instance['item_id'])){
 							$featureImg=site_url('/wp-content/uploads/'.$featureImg ,null );  
 							?>
 							<div class="items">
-								<div class="relative">
-									<a href="<?php echo $permalink; ?>"><img src="<?php echo $featureImg; ?>" /></a>
-									<div class="hot-news-title margin-top-15">
-										<a href="<?php echo $permalink; ?>"><?php echo $title; ?></a>
-									</div>
-									<div class="hot-news-excerpt margin-top-5">
-										<?php echo $excerpt; ?>
-									</div>
-									<a class="readmore" href="<?php echo $permalink; ?>">Xem thêm</a>
-								</div>
+								<span class="corn"><img src="<?php echo $featureImg; ?>" alt="Nhóm cải bắp, rau lá"></span>
+        <div class="nhom-cu-qua margin-top-15"><center><?php echo $title; ?></center></div>
+        <div class="excerpt-nhomcuqua"><center><?php echo $excerpt; ?></center></div>
 							</div>																	
 							<?php							
 						}
@@ -148,8 +180,7 @@ if(!empty($instance['item_id'])){
 					</section>
 				</div>    				
 				<?php		
-				break;			
-						
+				break;									
 			case "sale-product-widget":	
 			?>					
 			<section class="slider">

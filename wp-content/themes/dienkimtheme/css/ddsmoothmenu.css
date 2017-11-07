@@ -26,8 +26,8 @@ margin-left: 0;
     display: block;
     background: transparent;
     padding: 14px 15px;
-    border-right: solid 1px #00c15e;
-    color: #ffffff;
+    border-right: solid 0px #ff9900;
+    color: #3c3c3c;
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'baomoi';
@@ -49,8 +49,8 @@ color:#F86B47;
 }
 
 .ddsmoothmenu ul li a:hover{
-background: transparent; /*background of menu items during onmouseover (hover state)*/
-color:#F86B47;
+background:#ff9900; /*background of menu items during onmouseover (hover state)*/
+color:#ffffff;
 }
 	
 /* sub menus */
@@ -59,7 +59,7 @@ position: absolute;
 left: -3000px;
 display: none; /*collapse all sub menus to begin with*/
 visibility: hidden;
-background: #00a651;
+background: #ffffff;
 width: 200px !important;
 top: 43px !important;
 }
@@ -76,7 +76,7 @@ top: 0 !important;
 }
 
 .ddsmoothmenu ul li ul li a:hover{
-  background: #00d769
+  background: #ff9900
 }
 /* Sub level menu links style */
 .ddsmoothmenu ul li ul li a{
@@ -84,17 +84,17 @@ top: 0 !important;
     width: 100%;
     padding: 10px 0px 10px 10px;
     margin: 0;
-    border-bottom:solid 1px #00c15e;
+    border-bottom:solid 1px #ff9900;
     font-family: 'robotocondensed';
     display: block;
-    border-left: solid 1px #00c15e;
-    border-right: solid 1px #00c15e;
+    border-left: solid 1px #ff9900;
+    border-right: solid 1px #ff9900;
     text-transform: capitalize;
     font-weight: normal;
 }
 .ddsmoothmenu > ul > li.current-menu-item > a{
-  color:#353434;
-  background: #ffffff
+  color:#ffffff;
+  background: #ff9900
 }
 .ddsmoothmenu > ul > li > ul > li.current-menu-item > a{
   color: #3AB54A;
